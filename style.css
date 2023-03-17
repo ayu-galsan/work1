@@ -1,69 +1,84 @@
 .page {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "content content content content"
+    "footer footer footer footer";
   background-color: gainsboro;
 }
 
 .header {
-  margin: 20px;
-  align-self: center;
+  grid-area: header;
 }
 
 .header__title {
-  margin: 0;
-  padding: 0;
+  text-align: center;
 }
 
 .content {
-  display: flex;
+  display: grid;
+  grid-area: content;
+  grid-template-areas: "main main main side";
 }
 
 .main {
-  display: flex;
-  width: 50%;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "main-title main-title main-title"
+    "main-info main-info main-info";
   background-color: antiquewhite;
+  grid-area: main;
+}
+
+.main__title {
+  grid-area: main-title;
+  text-align: center;
 }
 
 .main__info {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-area: main-info;
+  grid-template-areas:
+    "main-list main-list"
+    "main-part main-part";
+  padding: 10px;
 }
 
 .main__list {
-  display: flex;
+  display: grid;
+  grid-area: main-list;
+  grid-template-columns: repeat(2, 1fr);
   padding: 0;
+  gap: 10px;
 }
 
 .main__list-item {
-  width: 50%;
-  margin: 10px;
-  padding: 20px;
   list-style: none;
-  text-align: center;
+  padding: 20px;
   background-color: rgb(247, 222, 184);
 }
 
 .main__part {
-  text-align: center;
-  margin: 10px;
+  grid-area: main-part;
   padding: 20px;
   background-color: rgb(247, 222, 184);
 }
 
 .side {
-  display: flex;
-  justify-content: center;
-  width: 50%;
+  grid-area: side;
   background-color: rgb(203, 245, 203);
 }
 
+.side__title {
+  text-align: center;
+}
+
 .footer {
-  display: flex;
+  display: grid;
+  grid-area: footer;
+  gap: 10px;
   margin: 10px;
-  justify-content: space-around;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer__item {
